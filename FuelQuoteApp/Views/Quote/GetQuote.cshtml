@@ -1,0 +1,47 @@
+﻿@model FuelQuoteApp.Models.Quote.QuoteViewModel
+
+@{
+    ViewData["Title"] = "GetQuote";
+}
+
+<h2>GetQuote</h2>
+
+<div class="col-md-6">
+    <div class="panel panel-default">
+        <div class="panel-heading">
+            <h3 class="panel-title">
+                Here is your Quotaition
+            </h3>
+        </div>
+        <div class="panel-body">
+            <form role="form" asp-action="GetQuote" asp-controller="Quote" method="post">
+                <div class="form-group">
+                    <input asp-for="GallonsRequested" class="form-control input-sm" placeholder="Gallons Requested">
+                    <span asp-validation-for="GallonsRequested" class="text-danger"></span>
+                </div>
+                <div class="form-group">
+                    <input asp-for="DeliveryAddress" class="form-control input-sm" readonly>
+                </div>
+                <div class="form-group">
+                    <input asp-for="DateRequested" type="date" asp-format="{0:yyyy-MM-dd}" class="form-control" />
+                    <span asp-validation-for="DateRequested" class="text-danger"></span>
+                </div>
+                <div class="form-group">
+                    <input asp-for="PricePerGallon" class="form-control input-sm" readonly>
+                </div>
+                <div class="form-group">
+                    <input asp-for="TotalAmount" class="form-control input-sm" readonly>
+                </div>
+                <div class="row">
+                    <div class="col-xs-6 col-sm-6 col-md-6">
+                        <input type="submit" value="Get Price" class="btn btn-info btn-block">
+                    </div>
+                    <div class="col-xs-6 col-sm-6 col-md-6">
+                        <input type="button" value="Update" class="btn btn-info btn-block">
+                    </div>
+                </div>
+
+            </form>
+        </div>
+    </div>
+</div>
